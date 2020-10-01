@@ -5,10 +5,10 @@ export const loadBigMacData = async () => {
 
       const response = await fetch(`https://raw.githubusercontent.com/zelima/big-mac-index/master/data/big-mac-index.csv`);
       const data = await response.text();
-      const souljaboy = convertCSV(data);
+      const cleanedData = convertCSV(data);
 
-      await saveBigMacData(souljaboy);
-      return souljaboy;
+      await saveBigMacData(cleanedData);
+      return cleanedData;
     }
 
     return JSON.parse(serializedBigMac);
