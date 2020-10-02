@@ -1,17 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Dashboard from './components/dashboard/dashboard'
-import Header from './components/header/header';
+import React from "react";
+import "./App.css";
+import Dashboard from "./components/dashboard/dashboard";
 
 function App() {
-
   return (
     <div className="App">
-      <Header />
-      <h1>
-        GRANDE MAC
-      </h1>
+      <h1>GRANDE MAC</h1>
       <Dashboard />
     </div>
   );
