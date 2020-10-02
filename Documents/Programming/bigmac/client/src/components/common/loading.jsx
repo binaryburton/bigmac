@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Loading() {
   return (
-    <div style={{ color: "green" }}>
+    <div data-testid="loading" style={{ color: "green" }}>
       <b>
         <h1>LOADING...</h1>
         <h2>LOADING...</h2>

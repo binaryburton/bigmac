@@ -18,4 +18,9 @@ I display which date the calucations are reffering to at the top of the page
 ## Issues with **ipvigilante.com**
 
 When I was finishing up the applicaiton, I started having trouble connecting with **(https://ipvigilante.com/json/)**
-Even when navigating to **https://ipvigilante.com/json/8.8.8.8** from their developer docs on chrome, I get **This site can’t be reachedipvigilante.com refused to connect.**
+I cannot even access the link you provided in the email **https://www.ipvigilante.com/api-developer-docs/**, I get **This site can’t be reachedipvigilante.com refused to connect.**
+I decided to hardcode in data that I would normally get back from fetching this site so you could see how to application works, instead of displaying an error message
+
+## Testing
+
+**cd** into the client folder then run **npm test**

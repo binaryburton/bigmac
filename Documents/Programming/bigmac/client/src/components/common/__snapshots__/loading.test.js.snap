@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshop 1`] = `
+<div
+  data-testid="loading"
+  style={
+    Object {
+      "color": "green",
+    }
+  }
+>
+  <b>
+    <h1>
+      LOADING...
+    </h1>
+    <h2>
+      LOADING...
+    </h2>
+    <h3>
+      LOADING...
+    </h3>
+    <h4>
+      LOADING...
+    </h4>
+    <h5>
+      LOADING...
+    </h5>
+    <h6>
+      LOADING...
+    </h6>
+  </b>
+</div>
+`;
+
+exports[`matches snapshot 1`] = `
+<div
+  data-testid="loading"
+  style={
+    Object {
+      "color": "green",
+    }
+  }
+>
+  <b>
+    <h1>
+      LOADING...
+    </h1>
+    <h2>
+      LOADING...
+    </h2>
+    <h3>
+      LOADING...
+    </h3>
+    <h4>
+      LOADING...
+    </h4>
+    <h5>
+      LOADING...
+    </h5>
+    <h6>
+      LOADING...
+    </h6>
+  </b>
+</div>
+`;

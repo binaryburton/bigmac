@@ -41,20 +41,25 @@ const saveBigMacData = (state) => {
 
 const convertCSV = (data) => {
   let finalArray = [];
-  const titles = data.slice(0, data.indexOf("\n")).split(",");
 
-  const newTitles = titles.map((item) => {
-    return item.replace(/ +/g, "");
-  });
+  const titles = getTitles(data);
 
   const rows = data.slice(data.indexOf("\n") + 1).split("\n");
   rows.map((row) => {
     const values = row.split(",");
-    const singleElement = newTitles.reduce(
+    const singleElement = titles.reduce(
       (object, curr, i) => ((object[curr] = values[i]), object),
       {}
     );
     finalArray.push(singleElement);
   });
   return finalArray;
+};
+
+export const getTitles = (csv) => {
+  const titles = csv.slice(0, csv.indexOf("\n")).split(",");
+  const newTitles = titles.map((item) => {
+    return item.replace(/ +/g, "");
+  });
+  return newTitles;
 };

@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 exports.getIpInfo = (req, res, next) => {
+  // I created this data since the "https://ipvigilante.com/json/" crashed, the original code is commented out below
   const ifIpVigilanteIsDown = {
     ipv4: "8.8.8.8",
     continent_name: "North America",
@@ -13,6 +14,8 @@ exports.getIpInfo = (req, res, next) => {
   };
   try {
     res.status(200).send({ data: ifIpVigilanteIsDown });
+
+    // ORIGIONAL CODE
     // axios
     //   .get("https://ipvigilante.com/json/" + req.params.ip)
     //   .then((response) => {
@@ -24,9 +27,15 @@ exports.getIpInfo = (req, res, next) => {
     //       res.status(400).send({ message: "Error retreiving data" });
     //     }
     //   });
-  } catch (error) {
-    res.status(400).send({ message: "Error trying to retreive data" });
-    next(error);
+  } catch (err) {
+    if (err.response) {
+      res.status(err.response.status).send({ message: err.message });
+    } else if (err.request) {
+      res.status(500).send({ message: "Internal Server Error" });
+    } else {
+      res.status(500).send({ message: "Error trying to retreive data" });
+    }
+    next(err);
   }
 };
 
@@ -41,8 +50,14 @@ exports.getUserIp = (req, res, next) => {
         res.status(400).send({ message: "Error trying to retreive data" });
       }
     });
-  } catch (error) {
-    res.status(400).send({ message: "Error trying to retreive data" });
-    next(error);
+  } catch (err) {
+    if (err.response) {
+      res.status(err.response.status).send({ message: err.message });
+    } else if (err.request) {
+      res.status(500).send({ message: "Internal Server Error" });
+    } else {
+      res.status(400).send({ message: "Error trying to retreive data" });
+    }
+    next(err);
   }
 };
