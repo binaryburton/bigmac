@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "BigMacAPI",
+    "description": "Purpose is to retreive current users IP address using third party api (https://api.ipify.org) and to get more details on a given IP address",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/ip/user": {
+      "get": {
+        "summary": "Returns an IP address.",
+        "description": "Returns an IP address.",
+        "responses": {
+          "200": {
+            "description": "A JSON reprentation of the IP address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "example": "8.8.8.8"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ip/info/{ip}": {
+      "get": {
+        "summary": "Returns info based on given IP address.",
+        "description": "Returns info based on given IP address.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ip",
+            "schema": {
+              "type": "string"
+            },
+            "example": "8.8.8.8",
+            "required": true,
+            "description": "String IP of the user to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON reprentation of the details for given IP address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "description": "The data for given IP address.",
+                      "properties": {
+                        "ipv4": {
+                          "type": "string"
+                        },
+                        "continent_name": {
+                          "type": "string"
+                        },
+                        "country_name": {
+                          "type": "string"
+                        },
+                        "subdivision_1_name": {
+                          "type": "string"
+                        },
+                        "subdivision_2_name": {
+                          "type": "string"
+                        },
+                        "city_name": {
+                          "type": "string"
+                        },
+                        "latitude": {
+                          "type": "string"
+                        },
+                        "longitude": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "ipv4": "73.221.170.233",
+                  "continent_name": "North America",
+                  "country_name": "United States",
+                  "subdivision_1_name": "Washington",
+                  "subdivision_2_name": "null",
+                  "city_name": "Poulsbo",
+                  "latitude": "47.75370",
+                  "longitude": "-122.61230"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

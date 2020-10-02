@@ -38,7 +38,7 @@ export default class dashboard extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (e.target.currency.value && e.target.currency.value !== '0') {
+    if (e.target.currency.value && e.target.currency.value !== "0") {
       const numberValue = parseInt(e.target.currency.value);
       this.setState({
         localAmount: numberValue,
@@ -94,7 +94,13 @@ export default class dashboard extends Component {
                 ) : (
                   <> </>
                 )}
-              </form>
+              </form>{" "}
+              <br />
+              <span style={{ color: "lightGreen" }}>
+                {" "}
+                The data for <b> {this.state.currentCountry.Country} </b> was
+                gathered in <b> {this.state.currentCountry.Date} </b>
+              </span>
             </div>
 
             <div style={row}>
@@ -132,7 +138,13 @@ export default class dashboard extends Component {
                 </>
               ) : (
                 <></>
-              )}
+              )}{" "}
+              <br />
+              <span style={{ color: "lightGreen" }}>
+                {" "}
+                The data for <b> {this.state.randomCountry.Country} </b> was
+                gathered in <b> {this.state.randomCountry.Date} </b>
+              </span>
             </div>
           </>
         ) : (
